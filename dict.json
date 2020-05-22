@@ -6,7 +6,7 @@
                 "RU": "Сейчас"
               },
               "p02": {
-                "EN": "\nFor your information enter 'I'.\n",
+                "EN": "\nFor information enter 'I'.\n",
                 "RU": "\nДля справки введите 'I'.\n"
                 },
               "p03":{
@@ -40,6 +40,10 @@
               "p16":{
                 "EN": "\nToday: ",
                 "RU": "\nСегодня: "
+              },
+              "p100":{
+                "EN": "\nThe program for count time period.\nAll records in file <<reglist.txt>>.\nUsage\n\t C \tStart in. Press C(c), if you want write start time.\n\t G \tStop now. Press G(g), if you want write stop time.\n\t S \tCount summ time in hour. Press S(s) , if you want summ time between dates.\n\t Q \tQuit. Press Q(q) , if you want exit from program.\n\t RU,EN \tSet language in reglist.txt. RU - for russian, EN - for english language.\n",
+                "RU": "\nПрограмма для подсчета времени. \nВсе записи в файле << reglist.txt >>. \nКакпользоваться \n\t C \tЗапуск в. Нажмите C (c), если вы хотите записать начало времени. \n\t G \tОстановить сейчас. Нажмите G (g), если вы хотите записать время остановки.\n\t S \tСчетное время в часах. Нажмите S (s), если вы хотите суммировать время между датами. \n\t Q \tВыход. Нажмите Q (q), если вы хотите выйти из программы.\n\t RU, EN \tУстановите язык в reglist.txt. RU - для русского языка, EN - для английского языка.\n"
               }
             },
             "calc": {

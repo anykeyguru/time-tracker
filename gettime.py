@@ -9,6 +9,15 @@ from datetime import datetime
 from calc_time import CounterTime
 
 
+# globals
+regstrFile = 'reglist.txt'
+defvalue = ""
+last = defvalue
+EndTimeF = defvalue
+startsTime = defvalue
+CheckOut = defvalue
+
+
 # Clear screen.
 def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -22,10 +31,6 @@ if sys.platform == 'win32':
 else:
     locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
 
-print(datetime.now().strftime("%B %Y"))
-
-
-regstrFile = 'reglist.txt'
 now = datetime.now()
 dt_string = now.strftime("%Y.%m.%d %H:%M:%S")
 try:
@@ -33,17 +38,9 @@ try:
 except IOError as e:
     with open(regstrFile, "w") as file_out:
         file_out.write("EN\n%s In\n" % dt_string)
+        print("Data file created.\n")
 else:
     pass
-
-
-# globals
-defvalue = ""
-last = defvalue
-EndTimeF = defvalue
-startsTime = defvalue
-CheckOut = defvalue
-#TRIG_LNG = None
 
 
 def forLastStrokes():
@@ -54,9 +51,6 @@ def forLastStrokes():
     return last
 
 
-forLastStrokes()
-
-
 def find_lang_param():
     with open('dict.json', 'r', encoding='utf-8') as f:
         lang_list = json.load(f)
@@ -65,6 +59,7 @@ def find_lang_param():
         elif "EN" in last[0]:
             TRIG_LNG = 'EN'
     return TRIG_LNG
+
 
 def wt(win, phrase):    # Get phrase from dictionary json
     """
@@ -83,14 +78,7 @@ def wt(win, phrase):    # Get phrase from dictionary json
 
 def MyInstructions():   # Instruction
     cls()
-    print("\nThe program for count time period.\n", end="")
-    print("All records in file <<reglist.txt>>.\n", end="")
-    print("Usage\n", end="")
-    print("\t C \tStart in. Press C(c), if you want write start time.\n", end="")
-    print("\t G \tStop now. Press G(g), if you want write stop time.\n", end="")
-    print("\t S \tCount summ time in hour. Press S(s) , if you want summ time between dates.\n", end="")
-    print("\t Q \tQuit. Press Q(q) , if you want exit from program.\n", end="")
-    print("\t RU,EN \tSet language in reglist.txt. RU - for russian, EN - for english language.\n", end="")
+    print(wt('main', 'p100'))
 
 
 print(wt('main', 'p16'), dt_string.split()[0], end="")  # Сейчас
@@ -121,10 +109,10 @@ def countTime():
     s2 = EndTimeF
     FMT = '%H:%M:%S'
     tdelta = datetime.strptime(s2, FMT) - datetime.strptime(s1, FMT)
-    print(wt('main', 'p09'), tdelta)
+
     return tdelta
 
-
+# Interface
 while True:
     getLastTime()
     if CheckOut == 0:
@@ -157,9 +145,10 @@ while True:
             now = datetime.now()
             dt_stringg = now.strftime("%Y.%m.%d %H:%M:%S")
             print(wt('main', 'p01'), dt_stringg)
-            reglist = open(regstrFile, 'a')
             countTime()
             letItWrite = str(dt_stringg) + " Out sum " + str(countTime()) + "\n"
+            print(wt('main', 'p09'), str(countTime()))
+            reglist = open(regstrFile, 'a')
             reglist.write(letItWrite)
             reglist.close()
             print(wt('main', 'p07'))   # Всего хорошего!

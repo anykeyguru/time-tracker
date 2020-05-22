@@ -7,6 +7,12 @@ import json
 
 class CounterTime:
     def __init__(self, file, startdate, enddate, lang):
+        """
+        :param file:
+        :param startdate:
+        :param enddate:
+        :param lang:
+        """
         MFT = '%Y.%m.%d'
         self.LANG = lang
         self.startdate = startdate
