@@ -21,4 +21,5 @@ Usage: <ul>
  <li> <i>calc_time.py</i> - time counter module.
  <li> <i>dict.json</i> - dictionary file EN, RU languages.
  <li> <i>reglist.txt</i> - records data file.
+ <li> <i>python 3.8</i> - python version.
  </p>
