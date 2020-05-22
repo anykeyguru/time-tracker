@@ -1,8 +1,18 @@
 #!/usr/bin/ python3
 # -*- coding: utf-8 -*-
+
 import re
 from datetime import datetime, timedelta
-from utils import wt
+from utils import get_phrase, forLastStrokes
+
+
+# globals
+default_value = ""
+last = default_value
+EndTimeF = default_value
+startsTime = default_value
+CheckOut = default_value
+
 
 
 class CounterTime:
@@ -24,7 +34,7 @@ class CounterTime:
             self.start_date = datetime.strptime(self.startdate, MFT)
             self.end_date = datetime.strptime(self.enddate, MFT)
         else:
-            print(wt('calc', 'p05'), end="")     # No true data, repeat enter
+            print(get_phrase('calc', 'p05'), end="")     # No true data, repeat enter
             self.start_date = datetime.strptime('1900.01.01', MFT)
             self.end_date = datetime.strptime('2050.01.01', MFT)
         self.file = file
@@ -32,7 +42,7 @@ class CounterTime:
 
 
     def CountSumm(self):
-        print(wt('calc', 'p04'), self.start_date.strftime('%Y.%m.%d') + "/"
+        print(get_phrase('calc', 'p04'), self.start_date.strftime('%Y.%m.%d') + "/"
               + self.end_date.strftime('%Y.%m.%d'), end="\n")
         regIstrFile = self.file
         read_file = open(regIstrFile)
@@ -60,12 +70,13 @@ class CounterTime:
         if len(str(timedelta(seconds=valueTime))) not in (7, 8):
             ithDay = str(timedelta(seconds=valueTime)).split(",")[1].split(":")[1:3]
             shareTime = str(timedelta(seconds=valueTime))
-            print(wt('calc', 'p06'), shareTime + wt('calc', 'p07'), wt('calc', 'p09'),
+            print(get_phrase('calc', 'p06'), shareTime + get_phrase('calc', 'p07'), get_phrase('calc', 'p09'),
                   str(valueTime // 3600) + ":" + ithDay[0] + ":" + ithDay[1], ")", end="\n")
-            print(wt('calc', 'p08'), str(valueTime // 3600) + wt('calc', 'p07'), end="\n\n")
+            print(get_phrase('calc', 'p08'), str(valueTime // 3600) + get_phrase('calc', 'p07'), end="\n\n")
         else:
-            print(wt('calc', 'p06'), str(timedelta(seconds=valueTime)) + wt('calc', 'p07'), end="\n")
+            print(get_phrase('calc', 'p06'), str(timedelta(seconds=valueTime)) + get_phrase('calc', 'p07'), end="\n")
 
 
 # test = CounterTime('reglist.txt', "2020.05.21", "2020.05.22", 'EN')
 # test.CountSumm()
+

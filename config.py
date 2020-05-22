@@ -3,3 +3,4 @@
 
 # globals
 regstrFile = 'reglist.txt'
+dictionary = 'dict.json'
