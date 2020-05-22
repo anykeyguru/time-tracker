@@ -172,7 +172,7 @@ while True:
                     break
             except KeyboardInterrupt:
                 print(wt('calc', 'p12'))    # Пожалуйста, введите дату.
-                print()
+                print(wt('calc', 'p13'))
 
     elif answer in ("Q", "q"):
         print(wt('main', 'p07'))    # "Всего хорошего!"
