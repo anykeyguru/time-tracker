@@ -2,6 +2,10 @@
 
 <p>The program for count time period.</p>
 <p>
+The main purpose, time tracking.<br>
+Functions:<br>
+Record the start and end time during the day.<br>
+Counting the total time in a specified period.<br>
 All records in file <i>reglist.txt</i>.<br>
 Usage: <ul>
 	 <li># C 	Start in. Press C(c), if you want write start time.>
