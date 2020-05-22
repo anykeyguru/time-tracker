@@ -6,7 +6,11 @@ The main purpose, time tracking.<br>
 Functions:<br>
 Record the start and end time during the day.
 Counting the total time in a specified period.<br>
+
+For example, you want record your working time, when you start and finished your work.<br>
+After some records, you wand find out your summary time for specific period, you can chose between dates.
 All records in file <i>reglist.txt</i>.<br>
+<hr>
 Usage: <ul>
 	 <li># C 	Start in. Press C(c), if you want write start time.>
 	 <li># G 	Stop now. Press G(g), if you want write stop time.
