@@ -1,21 +1,20 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import json
-# from dictionary import DictionaryLang
 import locale
 import os
 import sys
 import time
 from datetime import datetime
-
 from calc_time import CounterTime
 
 
+# Clear screen.
 def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("\n\n")
 
 
+# Clear
 cls()
 
 if sys.platform == 'win32':
@@ -24,6 +23,7 @@ else:
     locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
 
 print(datetime.now().strftime("%B %Y"))
+
 
 regstrFile = 'reglist.txt'
 now = datetime.now()
@@ -36,34 +36,48 @@ except IOError as e:
 else:
     pass
 
+
 # globals
 defvalue = ""
 last = defvalue
 EndTimeF = defvalue
 startsTime = defvalue
 CheckOut = defvalue
+#TRIG_LNG = None
 
 
 def forLastStrokes():
     global last
     read_last = open(regstrFile)
     last = read_last.readlines()
+    read_last.close()
+    return last
 
 
 forLastStrokes()
 
-def wt(win, phrase):    # Get phrase from dictionary json
-    forLastStrokes()
-    global TRIG_LNG, lLANG_TYPE
+
+def find_lang_param():
     with open('dict.json', 'r', encoding='utf-8') as f:
         lang_list = json.load(f)
-    if "RU" in last[0]:
-        TRIG_LNG = 'RU'
-    elif "EN" in last[0]:
-        TRIG_LNG = 'EN'
+        if "RU" in last[0]:
+            TRIG_LNG = 'RU'
+        elif "EN" in last[0]:
+            TRIG_LNG = 'EN'
+    return TRIG_LNG
+
+def wt(win, phrase):    # Get phrase from dictionary json
+    """
+    :param win: Main console, calc console
+    :param phrase: Phrase index
+    :return: Phrase for console
+    """
+    with open('dict.json', 'r', encoding='utf-8') as f:
+        lang_list = json.load(f)
+    forLastStrokes()
     text = phrase
     window = win
-    a = lang_list[0][window][text][TRIG_LNG]
+    a = lang_list[0][window][text][find_lang_param()]
     return a
 
 
@@ -102,7 +116,6 @@ def getLastTime():  # Count Time between last and inserted time
 
 
 def countTime():
-    global tdelta
     getLastTime()
     s1 = startsTime
     s2 = EndTimeF
@@ -138,7 +151,7 @@ while True:
             reglist.close()
         else:
             print("try G or g")
-    elif answer in("G", "g"):
+    elif answer in ("G", "g"):
         if CheckOut == 1:
             cls()
             now = datetime.now()
@@ -146,7 +159,7 @@ while True:
             print(wt('main', 'p01'), dt_stringg)
             reglist = open(regstrFile, 'a')
             countTime()
-            letItWrite = str(dt_stringg) + " Out sum " + str(tdelta) + "\n"
+            letItWrite = str(dt_stringg) + " Out sum " + str(countTime()) + "\n"
             reglist.write(letItWrite)
             reglist.close()
             print(wt('main', 'p07'))   # Всего хорошего!
@@ -156,19 +169,24 @@ while True:
             print("Try C or c")
     elif answer in ("I", "i"):
         MyInstructions()
-    elif answer in("S", "s"):
+    elif answer in ("S", "s"):
+        cls()
         while True:
-            scount = CounterTime(regstrFile, input(wt('calc', 'p10')), input(wt('calc', 'p11')),
-                                 TRIG_LNG)      # "Введите начальную дату:" "Введите конечную дату:"
-            CounterTime.CountSumm(scount)
-            myQL = input(wt('calc', 'p03'))     # Show More?
-            if myQL == "":
-                continue
-            else:
-                break
-    elif answer in("Q", "q"):
+            try:
+                scount = CounterTime(regstrFile, input(wt('calc', 'p10')), input(wt('calc', 'p11')), find_lang_param())
+                # "Введите начальную дату:" "Введите конечную дату:"
+                CounterTime.CountSumm(scount)
+                myQL = input(wt('calc', 'p03'))  # Show More?
+                if myQL == "":
+                    continue
+                else:
+                    break
+            except KeyboardInterrupt:
+                print(wt('calc', 'p12'))    # Пожалуйста, введите дату.
+                print("Double click Enter , after 'Q', for exit from calc time")
+    elif answer in ("Q", "q"):
         print(wt('main', 'p07'))    # "Всего хорошего!"
         time.sleep(2)
         break
     else:
-        print("Invalid response")
+        print("Invalid response.")
