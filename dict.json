@@ -52,8 +52,8 @@
                 "RU": "Введите конечную дату: "
               },
               "p03":{
-                "EN": "Show more?",
-                "RU": "Показать еще?"
+                "EN": "Show more? Press Enter, for exit Q\n",
+                "RU": "Показать еще? Нажать Enter, закончить Q\n"
               },
               "p04":{
                 "EN": "\nSelection: ",
@@ -80,12 +80,16 @@
                 "RU": " или ("
               },
               "p10":{
-                "EN": "Average table time: ",
+                "EN": "Enter start date: ",
                 "RU": "Введите начальную дату:"
               },
               "p11":{
-                "EN": "Average table time: ",
+                "EN": "Enter end date: ",
                 "RU": "Введите конечную дату:"
+              },
+              "p12":{
+                "EN": "Please, enter date.\n",
+                "RU": "Пожалуйста, введите дату.\n"
               }
             }
         }
