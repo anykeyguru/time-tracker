@@ -8,7 +8,7 @@ Record the start and end time during the day.
 Counting the total time in a specified period.<br>
 
 For example, you want record your working time, when you start and finished your work.<br>
-After some records, you wand find out your summary time for specific period, you can chose between dates.
+After some records, you want find out your summary time for specific period, you can chose between dates.
 All records in file <i>reglist.txt</i>.<br>
 <hr>
 Usage: <ul>
