@@ -11,3 +11,10 @@ Usage: <ul>
 	 <li># RU,EN 	Set language in reglist.txt. RU - for russian, EN(default) - for english language.
     </ul>
  </p>
+ 
+ <p>Resources<br>
+ <li> <i>gettime.py</i> - main program.
+ <li> <i>calc_time.py</i> - time counter module.
+ <li> <i>dict.json</i> - dictionary file EN, RU languages.
+ <li> <i>reglist.txt</i> - records data file.
+ </p>
