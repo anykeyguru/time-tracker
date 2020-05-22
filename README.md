@@ -1,4 +1,2 @@
 # time-tracker
-in this pro
-Fix start stop time.
-Count time.
+This program wrte start/end time, count time.
