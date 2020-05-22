@@ -172,7 +172,8 @@ while True:
                     break
             except KeyboardInterrupt:
                 print(wt('calc', 'p12'))    # Пожалуйста, введите дату.
-                print("Double click Enter , after 'Q', for exit from calc time")
+                print()
+
     elif answer in ("Q", "q"):
         print(wt('main', 'p07'))    # "Всего хорошего!"
         time.sleep(2)

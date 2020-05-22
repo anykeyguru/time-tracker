@@ -94,6 +94,10 @@
               "p12":{
                 "EN": "Please, enter date.\n",
                 "RU": "Пожалуйста, введите дату.\n"
+              },
+              "p12":{
+                "EN": "Double click Enter , after enter 'Q', for exit from calc time.\n",
+                "RU": "Дважды щелкните Enter, после введите 'Q', чтобы выйти из расчета времени.\n"
               }
             }
         }
