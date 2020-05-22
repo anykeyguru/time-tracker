@@ -2,15 +2,14 @@
 # -*- coding: utf-8 -*-
 import json
 import locale
-import os
 import sys
 import time
 from datetime import datetime
 from calc_time import CounterTime
-
+from config import regstrFile
+from utils import cls, forLastStrokes, find_lang_param
 
 # globals
-regstrFile = 'reglist.txt'
 defvalue = ""
 last = defvalue
 EndTimeF = defvalue
@@ -18,19 +17,12 @@ startsTime = defvalue
 CheckOut = defvalue
 
 
-# Clear screen.
-def cls():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-
 # Clear
 cls()
-
 if sys.platform == 'win32':
     locale.setlocale(locale.LC_ALL, 'rus_rus')
 else:
     locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
-
 now = datetime.now()
 dt_string = now.strftime("%Y.%m.%d %H:%M:%S")
 try:
@@ -41,24 +33,6 @@ except IOError as e:
         print("Data file created.\n")
 else:
     pass
-
-
-def forLastStrokes():
-    global last
-    read_last = open(regstrFile)
-    last = read_last.readlines()
-    read_last.close()
-    return last
-
-
-def find_lang_param():
-    with open('dict.json', 'r', encoding='utf-8') as f:
-        lang_list = json.load(f)
-        if "RU" in last[0]:
-            TRIG_LNG = 'RU'
-        elif "EN" in last[0]:
-            TRIG_LNG = 'EN'
-    return TRIG_LNG
 
 
 def wt(win, phrase):    # Get phrase from dictionary json
@@ -88,14 +62,14 @@ print(wt('main', 'p02'), end="")                        # Для справки 
 def getLastTime():  # Count Time between last and inserted time
     global EndTimeF, startsTime, CheckOut
     forLastStrokes()
-    if "Out" in last[-1]:
-        laststroke = last[-1]
+    if "Out" in forLastStrokes()[-1]:
+        laststroke = forLastStrokes()[-1]
         splitLastStroke = laststroke.split()
         EndTimeF = str(splitLastStroke[1])
         startsTime = EndTimeF
         CheckOut = 0
-    elif "In" in last[-1]:
-        laststroke = last[-1]
+    elif "In" in forLastStrokes()[-1]:
+        laststroke = forLastStrokes()[-1]
         splitLastStroke = laststroke.split()
         startsTime = str(splitLastStroke[1])
         EndTimeF = now.strftime("%H:%M:%S")
@@ -109,23 +83,19 @@ def countTime():
     s2 = EndTimeF
     FMT = '%H:%M:%S'
     tdelta = datetime.strptime(s2, FMT) - datetime.strptime(s1, FMT)
-
     return tdelta
 
 # Interface
 while True:
     getLastTime()
     if CheckOut == 0:
-
         message = wt('main', 'p03')         # Для подтверждения начала записи, введите C.
         print(message)
         print("_"*len(message))
         answer = input(wt('main', 'p04'))   # Записать время начала? С:
     elif CheckOut == 1:
-
         answer = input(wt('main', 'p05'))   # Записать время ухода? G:
     else:
-
         answer = input(wt('main', 'p06'))   # Вы пришли или уходите? C или G:
     if answer in ("C", "c"):
         if CheckOut == 0:
@@ -173,7 +143,6 @@ while True:
             except KeyboardInterrupt:
                 print(wt('calc', 'p12'))    # Пожалуйста, введите дату.
                 print(wt('calc', 'p13'))
-
     elif answer in ("Q", "q"):
         print(wt('main', 'p07'))    # "Всего хорошего!"
         time.sleep(2)

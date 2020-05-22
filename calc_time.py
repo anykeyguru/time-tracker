@@ -1,8 +1,8 @@
 #!/usr/bin/ python3
 # -*- coding: utf-8 -*-
-from datetime import datetime, timedelta
 import re
-import json
+from datetime import datetime, timedelta
+from utils import wt
 
 
 class CounterTime:
@@ -24,24 +24,15 @@ class CounterTime:
             self.start_date = datetime.strptime(self.startdate, MFT)
             self.end_date = datetime.strptime(self.enddate, MFT)
         else:
-            print(self.wt('calc', 'p05'), end="")     # No true data, repeat enter
+            print(wt('calc', 'p05'), end="")     # No true data, repeat enter
             self.start_date = datetime.strptime('1900.01.01', MFT)
             self.end_date = datetime.strptime('2050.01.01', MFT)
         self.file = file
 
 
 
-
-    def wt(self, win, phrase):
-        with open('dict.json', 'r', encoding='utf-8') as f:
-            lang_list = json.load(f)
-        text = phrase
-        window = win
-        a = lang_list[0][window][text][self.LANG]
-        return a
-
     def CountSumm(self):
-        print(self.wt('calc', 'p04'), self.start_date.strftime('%Y.%m.%d') + "/"
+        print(wt('calc', 'p04'), self.start_date.strftime('%Y.%m.%d') + "/"
               + self.end_date.strftime('%Y.%m.%d'), end="\n")
         regIstrFile = self.file
         read_file = open(regIstrFile)
@@ -69,11 +60,11 @@ class CounterTime:
         if len(str(timedelta(seconds=valueTime))) not in (7, 8):
             ithDay = str(timedelta(seconds=valueTime)).split(",")[1].split(":")[1:3]
             shareTime = str(timedelta(seconds=valueTime))
-            print(self.wt('calc', 'p06'), shareTime + self.wt('calc', 'p07'), self.wt('calc', 'p09'),
+            print(wt('calc', 'p06'), shareTime + wt('calc', 'p07'), wt('calc', 'p09'),
                   str(valueTime // 3600) + ":" + ithDay[0] + ":" + ithDay[1], ")", end="\n")
-            print(self.wt('calc', 'p08'), str(valueTime // 3600) + self.wt('calc', 'p07'), end="\n\n")
+            print(wt('calc', 'p08'), str(valueTime // 3600) + wt('calc', 'p07'), end="\n\n")
         else:
-            print(self.wt('calc', 'p06'), str(timedelta(seconds=valueTime)) + self.wt('calc', 'p07'), end="\n")
+            print(wt('calc', 'p06'), str(timedelta(seconds=valueTime)) + wt('calc', 'p07'), end="\n")
 
 
 # test = CounterTime('reglist.txt', "2020.05.21", "2020.05.22", 'EN')
