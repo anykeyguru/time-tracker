@@ -4,7 +4,7 @@
 <p>
 The main purpose, time tracking.<br>
 Functions:<br>
-Record the start and end time during the day.<br>
+Record the start and end time during the day.
 Counting the total time in a specified period.<br>
 All records in file <i>reglist.txt</i>.<br>
 Usage: <ul>
@@ -18,8 +18,10 @@ Usage: <ul>
  
  <p>Resources<br>
  <li> <i>gettime.py</i> - main program.
+ <li> <i>config.py</i> - config file.
+ <li> <i>utils.py</i> - utils module.
  <li> <i>calc_time.py</i> - time counter module.
  <li> <i>dict.json</i> - dictionary file EN, RU languages.
- <li> <i>reglist.txt</i> - records data file.
+ <li> <i>reglist.txt</i> - storage file.
  <li> <i>python 3.8</i> - python version.
  </p>
