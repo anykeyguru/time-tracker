@@ -51,16 +51,6 @@ def forLastStrokes():
 
 
 forLastStrokes()
-"""if "RU" in last[0]:  # ASSIGN LANGUAGE
-    lLANG_TYPE = DictionaryLang.RUS
-    TRIG_LNG = 'RU'
-elif "EN" in last[0]:
-    lLANG_TYPE = DictionaryLang.ENG
-    TRIG_LNG = 'EN'
-else:
-    with open(regstrFile, "w") as file_out:
-        file_out.write("EN")"""
-
 
 def wt(win, phrase):    # Get phrase from dictionary json
     forLastStrokes()
@@ -87,12 +77,6 @@ def MyInstructions():   # Instruction
     print("\t S \tCount summ time in hour. Press S(s) , if you want summ time between dates.\n", end="")
     print("\t Q \tQuit. Press Q(q) , if you want exit from program.\n", end="")
     print("\t RU,EN \tSet language in reglist.txt. RU - for russian, EN - for english language.\n", end="")
-    print("\n\tAuthor E.Muslimov", end="")
-    print("\n\te-mail: 240509865e@gmail.com", end="")
-    now = datetime.now()
-    message = "\n\tCopyright: © E.Muslimov  %s \n" % now.strftime('%Y.')
-    print(message)
-    print("-" * len(message), end="\n")
 
 
 print(wt('main', 'p16'), dt_string.split()[0], end="")  # Сейчас
