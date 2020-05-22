@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+
+class DictionaryLang:
+
+    RUS = ["Сейчас",
+           "Для справки введите 'I'.",
+           "Для подтверждения начала записи, введите C.",
+           "Записать время начала? С:",
+           "Записать время ухода? G:",
+           "Вы пришли или уходите? C или G:",
+           "Всего хорошего!",
+           "Вы пришли в ",
+           "Начало: ",
+           "Неверный формат даты, введите повторно.\nШаблон: 2020.02.15",
+           "Время для табеля. Приближённое: ",
+           " часов",
+           " или (",
+           "Сумма: ",
+           "\nВвборка: ",
+           "\n\nВведите начальную дату: ",
+           "Введите конечную дату: ",
+           "Показать еще?"]
+
+    ENG = ["Now",
+           "For your information enter 'I'.",
+           "For write start time, enter C.",
+           "Write start time? С:",
+           "Write stop time? G:",
+           "Are you came or go out? C или G:",
+           "Good luck!",
+           "You started in",
+           "Started in: ",
+           "Invalid date format.\nPlease follow template: 2020.02.15",
+           "Average table time: ",
+           " hours",
+           " or (",
+           "Sum: ",
+           "\nSelection: ",
+           "\n\nEnter start Date: ",
+           "Enter end Date: ",
+           "Show more?"]

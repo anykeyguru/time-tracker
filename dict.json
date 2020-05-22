@@ -1,0 +1,92 @@
+[
+        {
+            "main": {
+              "p01":{
+                "EN": "Now",
+                "RU": "Сейчас"
+              },
+              "p02": {
+                "EN": "\nFor your information enter 'I'.\n",
+                "RU": "\nДля справки введите 'I'.\n"
+                },
+              "p03":{
+                "EN": "For write start time, enter C.",
+                "RU": "Для  записи начала, введите C."
+              },
+              "p04":{
+                "EN": "Write start time? С:",
+                "RU": "Записать время начала? С:"
+              },
+              "p05":{
+                "EN": "Write stop time? G:",
+                "RU": "Записать время ухода? G:"
+              },
+              "p06":{
+                "EN": "Are you came or go out? C или G:",
+                "RU": "Вы пришли или уходите? C или G:"
+              },
+              "p07":{
+                "EN": "Good luck!",
+                "RU": "Всего хорошего!"
+              },
+              "p08":{
+                "EN": "Start time: ",
+                "RU": "Начало: "
+              },
+              "p09":{
+                "EN": "Time duration: ",
+                "RU": "Прошло времени: "
+              },
+              "p16":{
+                "EN": "\nToday: ",
+                "RU": "\nСегодня: "
+              }
+            },
+            "calc": {
+              "p01":{
+                "EN": "\n\nEnter start Date: ",
+                "RU": "\n\nВведите начальную дату: "
+              },
+              "p02":{
+                "EN": "Enter end Date: ",
+                "RU": "Введите конечную дату: "
+              },
+              "p03":{
+                "EN": "Show more?",
+                "RU": "Показать еще?"
+              },
+              "p04":{
+                "EN": "\nSelection: ",
+                "RU": "\nВыборка: "
+              },
+              "p05":{
+                "EN": "Invalid date format.\nPlease follow template: 1900.01.01",
+                "RU": "Неверный формат даты.\nВведите повторно по шаблону: 1900.01.01"
+              },
+              "p06":{
+                "EN": "Sum: ",
+                "RU": "Сумма: "
+              },
+              "p07":{
+                "EN": " hours",
+                "RU": " часов"
+              },
+              "p08":{
+                "EN": "Time sheet, average: ",
+                "RU": "Время для табеля, приближённое: "
+              },
+              "p09":{
+                "EN": " or (",
+                "RU": " или ("
+              },
+              "p10":{
+                "EN": "Average table time: ",
+                "RU": "Введите начальную дату:"
+              },
+              "p11":{
+                "EN": "Average table time: ",
+                "RU": "Введите конечную дату:"
+              }
+            }
+        }
+]
